@@ -1,6 +1,11 @@
 const Schema = mongoose.Schema;
 
 let listItemSchema = new Schema({
+    uuid: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        default: () => new mongoose.Types.ObjectId(),
+    },
     text: {
         type: String,
         required: true,
