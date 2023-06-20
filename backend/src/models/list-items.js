@@ -19,11 +19,7 @@ let listItemSchema = new Schema({
         required: false,
         unique: false,
         trim: true,
-    },
-    date: {
-        type: Date,
-        default: Date.now,
-    },
-});
+    }
+}, { timestamps: true });
 
 module.exports = mongoose.model('ListItem', listItemSchema);
