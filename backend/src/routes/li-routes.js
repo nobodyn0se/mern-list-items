@@ -3,8 +3,10 @@ const router = express.Router();
 
 const ListItem = require("../models/list-items");
 
+const { authToken } = require("../middleware/auth");
+
 // GET request to retrieve all list items
-router.route("").get((req, res) => {
+router.route("").get(authToken, (req, res) => {
   ListItem.find()
     .then((listItems) => res.json(listItems))
     .catch((err) => res.status(400).json(`Error: ${err}`));
