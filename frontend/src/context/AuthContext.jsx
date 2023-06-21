@@ -12,6 +12,8 @@ export const AuthContextProvider = ({ children }) => {
     const localStorageToken = JSON.parse(localStorage.getItem("token"));
 
     const [loading, setLoading] = useState(false);
+    const [token, setToken] = useState(localStorageToken?.token || null);
+
 
     // business logic for signup process
     const signup = async (username, password) => {
