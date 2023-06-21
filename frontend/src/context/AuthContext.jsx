@@ -9,7 +9,7 @@ export const useAuthProvider = () => useContext(AuthContext);
 
 export const AuthContextProvider = ({ children }) => {
 
-    const localStorageToken = JSON.parse(localStorage.getItem("token"));
+    let localStorageToken = JSON.parse(localStorage.hasOwnProperty("token"));
 
     const [loading, setLoading] = useState(false);
     const [token, setToken] = useState(localStorageToken?.token || null);
