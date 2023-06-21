@@ -9,10 +9,10 @@ export const useAuthProvider = () => useContext(AuthContext);
 
 export const AuthContextProvider = ({ children }) => {
 
-    const [loading, setLoading] = useState(false);
-    const [token, setToken] = useState(null);
-
     const localStorageToken = JSON.parse(localStorage.getItem("token"));
+
+    const [loading, setLoading] = useState(false);
+    const [token, setToken] = useState(localStorageToken?.token);
 
     // business logic for login process
     const login = async (username, password) => {
