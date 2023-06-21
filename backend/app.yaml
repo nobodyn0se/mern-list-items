@@ -1,0 +1,5 @@
+runtime: nodejs18
+
+env_variables:
+  MONGO_URI: "mongodb+srv://li-user0:BhEEBfeAPFprw6xV@list-items.0msyzs6.mongodb.net/?retryWrites=true&w=majority"
+  JWT_SECRET_KEY: "6IK0jToQjUyKzbSJMu8jtHEFJX5uEvM3/EjfcjzYhi4Y3YszXgCXEktzknii89x+Ct/VEyIoxfOjogWfSQM7mdwrt/1aUQnQXAO+G6MmoON6v4vKm1eYrCNBtQnYkWupt+Uww4llNeK8khnG08v0tuIBGHzic71LGzGv3jEoaZmkAjKnf1SgJMGxZuWx4ER6DnjsqCc8QFp94Bb/BBrJYEFL3op9gf9QXznNi9olzZe+GcbjYDRTT1R3yFg9itJwVRSoKOw5yARmx2cuxnOS2Dq6Ivmv4LAjAcB+MIyjNd/skfVCFEIP75k3IunT4IDeIlggJOSV0yShAFZ7eZH9CA=="
