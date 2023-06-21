@@ -12,7 +12,28 @@ export const AuthContextProvider = ({ children }) => {
     const localStorageToken = JSON.parse(localStorage.getItem("token"));
 
     const [loading, setLoading] = useState(false);
-    const [token, setToken] = useState(localStorageToken?.token);
+
+    // business logic for signup process
+    const signup = async (username, password) => {
+        try {
+            setLoading(true);
+            const response = await axios.post(`${env.REACT_APP_API_URI}/register`, {
+                username,
+                password
+            });
+
+            if(response.status === 201) {
+                setToken(response.data.token);
+
+                localStorage.setItem("token", JSON.stringify(token));
+                setLoading(false);
+            }
+        } catch(err) {
+            alert(err.response.data.message);
+            setLoading(false);
+        }
+    };
+
 
     // business logic for login process
     const login = async (username, password) => {
@@ -38,7 +59,7 @@ export const AuthContextProvider = ({ children }) => {
     }
 
     return (
-        <AuthContext.Provider value={{loading, login, token}}>
+        <AuthContext.Provider value={{loading, login, token, signup}}>
             { children }
         </AuthContext.Provider>
     )
