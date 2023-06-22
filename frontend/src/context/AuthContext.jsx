@@ -14,6 +14,7 @@ export const AuthContextProvider = ({ children }) => {
     const [loading, setLoading] = useState(false);
     const [token, setToken] = useState(localStorageToken?.token || null);
 
+    const [itemList, setItemList] = useState([]);
 
     // business logic for signup process
     const signup = async (username, password) => {
@@ -73,7 +74,8 @@ export const AuthContextProvider = ({ children }) => {
 
             if(response.status === 200) {
                 setLoading(false);
-                return response.data;
+                setItemList(response.data);
+                console.log(itemList);
             }
         } catch(err) {
             alert(err.response.data.message);
@@ -95,9 +97,8 @@ export const AuthContextProvider = ({ children }) => {
             });
 
             if(response.status === 200) {
-                const updatedListItems = await getListItems();
+                getListItems();
                 setLoading(false);
-                return updatedListItems;
             }
         } catch(err) {
             alert(err.response.data.message);
@@ -106,7 +107,7 @@ export const AuthContextProvider = ({ children }) => {
     }
 
     return (
-        <AuthContext.Provider value={{loading, login, token, signup, getListItems, addItem}}>
+        <AuthContext.Provider value={{loading, login, token, signup, getListItems, addItem, itemList}}>
             { children }
         </AuthContext.Provider>
     )
