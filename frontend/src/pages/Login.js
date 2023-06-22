@@ -78,7 +78,7 @@ const LoginPage = () => {
                 onChange={handlePasswordChange}
               />
 
-              <MDBBtn outline className="mx-2 px-5 my-3" color="white" size="lg">
+              <MDBBtn type="submit" onClick={handleSubmit} outline className="mx-2 px-5 my-3" color="white" size="lg">
                 Login
               </MDBBtn>
 
