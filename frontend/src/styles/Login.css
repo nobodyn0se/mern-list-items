@@ -1,0 +1,8 @@
+body {
+    /* fallback background */
+    background: #27ac61;
+
+    background: -webkit-linear-gradient(to right, rgb(17, 203, 153), rgb(33, 181, 222));
+    background: linear-gradient(to right, rgba(17, 203, 153, 1), rgba(33, 181, 222, 1))
+  }
+
