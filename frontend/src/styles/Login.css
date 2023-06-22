@@ -6,3 +6,10 @@ body {
     background: linear-gradient(to right, rgba(17, 203, 153, 1), rgba(33, 181, 222, 1))
   }
 
+.form-control {
+    color: #999;
+}
+
+.form-control:focus {
+    color: #ccc;
+}
