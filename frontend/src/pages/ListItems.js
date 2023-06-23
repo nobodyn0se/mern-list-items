@@ -10,7 +10,6 @@ import {
   MDBCol,
   MDBCard,
   MDBCardBody,
-  MDBCardTitle,
   MDBIcon,
 } from "mdb-react-ui-kit";
 
@@ -101,7 +100,7 @@ const ListItems = () => {
             </MDBBtn>
           </MDBCol>
         </MDBRow>
-        <MDBRow className="w-100">
+        <MDBRow className="w-100 mb-5">
           {itemList.map((item, index) => (
             <MDBCol
               key={`${item.uuid}+${index}`}
@@ -126,10 +125,10 @@ const ListItems = () => {
                   role="button"
                 />
                 <MDBCardBody className="px-3 pt-2 d-flex flex-column align-items-center mx-auto w-100">
-                        <div className="w-100 mb-0 fw-bold card-title text-no-wrap">
-                          {item.text}
-                        </div>
-                        <p className="w-100">{item.description}</p>
+                  <div className="w-100 mb-0 fw-bold card-title text-no-wrap">
+                    {item.text}
+                  </div>
+                  <p className="w-100">{item.description}</p>
                 </MDBCardBody>
               </MDBCard>
             </MDBCol>
