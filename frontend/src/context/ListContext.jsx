@@ -60,8 +60,34 @@ export const ListContextProvider = ({ children }) => {
         }
     }
 
+
+    //business logic to update a list item
+    const updateItem = async (uuid, updatedText, updatedDescription) => {
+        try {
+            setLoading(true);
+            const response = await axios.put(`${env.REACT_APP_API_URI}/list-items/update/${uuid}`, {
+                text: updatedText,
+                description: updatedDescription
+            } , {
+                headers: {
+                    authorization: token
+                }
+            });
+
+            if(response.status === 200) {
+                console.log(response);
+                getListItems();
+                setLoading(false);
+            }
+        } catch(err) {
+            console.log(err);
+        }
+    }
+
+
+
     return (
-        <ListContext.Provider value={{loading, token, getListItems, addItem, itemList}}>
+        <ListContext.Provider value={{loading, token, getListItems, addItem, updateItem, itemList}}>
             { children }
         </ListContext.Provider>
     )
