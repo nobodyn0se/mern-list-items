@@ -60,8 +60,13 @@ export const AuthContextProvider = ({ children }) => {
         }
     }
 
+    // business logic for logout process
+    const logout = () => {
+        localStorage.clear();
+    }
+
     return (
-        <AuthContext.Provider value={{loading, login, token, signup }}>
+        <AuthContext.Provider value={{loading, login, token, signup, logout }}>
             { children }
         </AuthContext.Provider>
     )
