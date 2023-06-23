@@ -88,17 +88,18 @@ const ListItems = () => {
           <MDBCol size="5" className="text-align-right">
             <h4>Total List Items: {itemList.length}</h4>
           </MDBCol>
-          <MDBCol size="5">
+          {/* <MDBCol size="5">
             <MDBBtn
               outline
               className="mx-2 px-5 my-3 bg-dark text-white"
               color="black"
               size="lg"
               rounded
+              onClick={handleLogOut}
             >
               Logout
             </MDBBtn>
-          </MDBCol>
+          </MDBCol> */}
         </MDBRow>
         <MDBRow className="w-100 mb-5">
           {itemList.map((item, index) => (
