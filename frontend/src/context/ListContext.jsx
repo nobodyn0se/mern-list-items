@@ -2,7 +2,6 @@ import axios from "axios";
 
 import { createContext, useState, useContext } from "react";
 
-import env from "react-dotenv";
 import { useAuthProvider } from "./AuthContext";
 
 const ListContext = createContext(null);
@@ -20,7 +19,7 @@ export const ListContextProvider = ({ children }) => {
     const getListItems = async () => {
         try {
             setLoading(true);
-            const response = await axios.get(`${env.REACT_APP_API_URI}/list-items`, {
+            const response = await axios.get(`${process.env.REACT_APP_API_URI}/list-items`, {
                 headers: {
                     authorization: token
                 }
@@ -40,7 +39,7 @@ export const ListContextProvider = ({ children }) => {
     const addItem = async (inputText, inputDescription) => {
         try {
             setLoading(true);
-            const response = await axios.post(`${env.REACT_APP_API_URI}/list-items/add`, {
+            const response = await axios.post(`${process.env.REACT_APP_API_URI}/list-items/add`, {
                 text: inputText,
                 description: inputDescription
             }, {
@@ -64,7 +63,7 @@ export const ListContextProvider = ({ children }) => {
     const updateItem = async (uuid, updatedText, updatedDescription) => {
         try {
             setLoading(true);
-            const response = await axios.put(`${env.REACT_APP_API_URI}/list-items/update/${uuid}`, {
+            const response = await axios.put(`${process.env.REACT_APP_API_URI}/list-items/update/${uuid}`, {
                 text: updatedText,
                 description: updatedDescription
             } , {
@@ -87,7 +86,7 @@ export const ListContextProvider = ({ children }) => {
     const deleteItem = async (uuid) => {
         try {
             setLoading(true);
-            const response = await axios.delete(`${env.REACT_APP_API_URI}/list-items/delete/${uuid}`, {
+            const response = await axios.delete(`${process.env.REACT_APP_API_URI}/list-items/delete/${uuid}`, {
                 headers: {
                     authorization: token
                 }

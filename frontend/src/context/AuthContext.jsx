@@ -19,7 +19,7 @@ export const AuthContextProvider = ({ children }) => {
     const signup = async (username, password) => {
         try {
             setLoading(true);
-            const response = await axios.post(`${env.REACT_APP_API_URI}/register`, {
+            const response = await axios.post(`${process.env.REACT_APP_API_URI}/register`, {
                 username,
                 password
             });
@@ -41,7 +41,7 @@ export const AuthContextProvider = ({ children }) => {
     const login = async (username, password) => {
         try {
             setLoading(true);
-            const response = await axios.post(`${env.REACT_APP_API_URI}/login`, {
+            const response = await axios.post(`${process.env.REACT_APP_API_URI}/login`, {
                 username,
                 password
             });
