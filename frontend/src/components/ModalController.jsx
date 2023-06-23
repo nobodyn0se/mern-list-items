@@ -26,9 +26,9 @@ const ModalController = ({ open, todoItem, todoMode, setShow, handleClose }) => 
         if(todoMode === "add") {
             return "Add New Item";
         } else if(todoMode === "edit" && todoItem)  {
-            return `Edit Item - ${todoItem.id}`;
+            return `Edit Item - ${todoItem.uuid}`;
         } else if(todoMode === 'delete') {
-            return `Delete Item - ${todoItem.id}`;
+            return `Delete Item - ${todoItem.uuid}`;
         }
     };
  
@@ -36,9 +36,9 @@ const ModalController = ({ open, todoItem, todoMode, setShow, handleClose }) => 
       if(todoMode === "add") {
         addItem(title, description);
       } else if(todoMode === "edit" && todoItem) {
-        updateItem(todoItem.id, title, description);
+        updateItem(todoItem.uuid, title, description);
       } else if(todoMode === 'delete') {
-        deleteItem(todoItem.id);
+        deleteItem(todoItem.uuid);
       }
       handleClose();
     };
@@ -140,7 +140,6 @@ const ModalController = ({ open, todoItem, todoMode, setShow, handleClose }) => 
               <MDBBtn color='secondary' onClick={handleClose}>
                 Close
               </MDBBtn>
-              <MDBBtn>Save changes</MDBBtn>
             </MDBModalFooter>
           </MDBModalContent>
         </MDBModalDialog>
