@@ -8,7 +8,7 @@ All API routes are protected by tokens, hence, third-party actors cannot access 
 As of now, the tokens are not persistent on local storage, hence the token will expire upon refreshing the page.
 
 The backend server is deployed on GCP at this URL: https://mern-list-items.el.r.appspot.com/v1
-The frontend is deployed on Netlify at this URL : https://main--mern-list-items.netlify.app/ 
+The frontend is deployed on Netlify at this URL : https://mern-list-items.netlify.app/
 
 
 ## How to install it?
@@ -44,11 +44,15 @@ This should start the frontend server on port : 3000
 The frontend URL will be http://localhost:3000
 
 ### Production testing
-For production testing, navigate to : https://main--mern-list-items.netlify.app/.
+For production testing, navigate to : https://mern-list-items.netlify.app/
 You can verify auth protection by sending requests to the endpoints without tokens and see Auth Denied messages.
 
 ## How to use the UI?
 The login page is the first page that opens. You can log in to your account or create a new one using the Sign Up link at the bottom.
+
+For testing you can use a pre-registered user with the following credentials:
+username: testuser1
+password: test123
 
 Once logged in, the top will display the total number of list items currently in DB.
 
@@ -68,4 +72,4 @@ To log out, simply refresh the page.
 - Optimization of backend responses to minimize network calls after every action
 - Refactoring of codebase using more robust state management solutions
 - Migrate frontend view to Vite or NextJS, network calls from REST to GraphQL
-
+- Add a shimmer effect or container for loading
