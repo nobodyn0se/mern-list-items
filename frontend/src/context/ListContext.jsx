@@ -29,7 +29,6 @@ export const ListContextProvider = ({ children }) => {
             if(response.status === 200) {
                 setLoading(false);
                 setItemList(response.data);
-                // console.log(itemList);
             }
         } catch(err) {
             alert(err.response.data.message);

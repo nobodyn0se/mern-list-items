@@ -14,7 +14,6 @@ import { useListProvider } from "../context/ListContext";
 import { useAuthProvider } from "../context/AuthContext";
  
 const ModalController = ({ open, todoItem, todoMode, setShow, handleClose }) => {
-    // console.log(todoItem, todoMode);
  
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");

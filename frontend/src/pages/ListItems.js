@@ -16,7 +16,7 @@ import {
 
 import { useListProvider } from "../context/ListContext";
 import { useAuthProvider } from "../context/AuthContext";
-import TodoController from "../components/ModalController";
+import ModalController from "../components/ModalController";
 
 const ListItems = () => {
   const navigate = useNavigate();
@@ -27,10 +27,6 @@ const ListItems = () => {
   const [todoMode, setTodoMode] = useState("add");
   const [selectedTodo, setSelectedTodo] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
-
-  // const fetchList = async () => {
-  //   await addItem();
-  // };
 
   const toggleShow = () => {
     setModalOpen(!modalOpen);
@@ -75,7 +71,6 @@ const ListItems = () => {
       //fetch data from server
       const fetchData = async () => {
         await getListItems();
-        //console.log(data);
       };
 
       fetchData();
@@ -140,13 +135,11 @@ const ListItems = () => {
         <button onClick={handleAdd}>Add a ToDo</button>
       </MDBContainer>
       {modalOpen && (
-        <TodoController
+        <ModalController
           open={modalOpen}
           todoMode={todoMode}
           todoItem={selectedTodo}
           setShow={setModalOpen}
-          // toggleShow={toggleShow}
-          // handleEdit={handleEdit}
           handleClose={handleClose}
         />
       )}
