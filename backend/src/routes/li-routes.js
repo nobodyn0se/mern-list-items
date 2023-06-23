@@ -13,7 +13,7 @@ router.route("").get(authToken, (req, res) => {
 });
 
 // POST request to add a new list item
-router.route("/add").post((req, res) => {
+router.route("/add").post(authToken, (req, res) => {
   const text = req.body.text;
   const description = req.body.description;
 
@@ -29,7 +29,7 @@ router.route("/add").post((req, res) => {
 });
 
 // PUT request to update a list item
-router.route("/update/:uuid").put((req, res) => {
+router.route("/update/:uuid").put(authToken, (req, res) => {
     console.log(req.params.uuid);
   ListItem.findOneAndUpdate({ uuid: req.params.uuid }, {
         text: req.body.text,
@@ -40,7 +40,7 @@ router.route("/update/:uuid").put((req, res) => {
 });
 
 // DELETE request to delete a list item
-router.route("/delete/:uuid").delete((req, res) => {
+router.route("/delete/:uuid").delete(authToken, (req, res) => {
     ListItem.findOneAndDelete({ uuid: req.params.uuid })
         .then(() => res.json("List item deleted"))
         .catch((err) => res.status(400).json(`Error: ${err}`));
