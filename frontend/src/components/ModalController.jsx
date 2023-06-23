@@ -108,7 +108,6 @@ const ModalController = ({ open, todoItem, todoMode, setShow, handleClose }) => 
         return (
           <form
             onSubmit={(e) => {
-              console.log(e);
               e.preventDefault();
               onSubmit();
               handleClose();
