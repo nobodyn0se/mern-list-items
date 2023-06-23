@@ -71,8 +71,8 @@ const SignUp = () => {
               <MDBInput
                 wrapperClass="mb-4 mx-5 w-100"
                 labelClass="text-white"
-                label="Email address"
-                type="email"
+                label="Username"
+                type="text"
                 size="lg"
                 value={username}
                 onChange={handleUsernameChange}
