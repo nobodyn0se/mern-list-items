@@ -29,7 +29,7 @@ export const ListContextProvider = ({ children }) => {
             if(response.status === 200) {
                 setLoading(false);
                 setItemList(response.data);
-                console.log(itemList);
+                // console.log(itemList);
             }
         } catch(err) {
             alert(err.response.data.message);
@@ -38,12 +38,12 @@ export const ListContextProvider = ({ children }) => {
     };
 
     // business logic to post list items
-    const addItem = async () => {
+    const addItem = async (inputText, inputDescription) => {
         try {
             setLoading(true);
             const response = await axios.post(`${env.REACT_APP_API_URI}/list-items/add`, {
-                text: "New ToDo Item",
-                description: "New ToDo Item Description"
+                text: inputText,
+                description: inputDescription
             }, {
                 headers: {
                     authorization: token
