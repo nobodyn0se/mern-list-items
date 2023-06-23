@@ -20,12 +20,17 @@ import ModalController from "../components/ModalController";
 const ListItems = () => {
   const navigate = useNavigate();
 
-  const { token } = useAuthProvider();
-  const { getListItems, loading, addItem, itemList } = useListProvider();
+  const { token, logout } = useAuthProvider();
+  const { getListItems, loading, itemList } = useListProvider();
 
   const [todoMode, setTodoMode] = useState("add");
   const [selectedTodo, setSelectedTodo] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
+
+  const handleLogOut = () => {
+    logout();
+    navigate('/login');
+  }
 
   const toggleShow = () => {
     setModalOpen(!modalOpen);
@@ -85,8 +90,11 @@ const ListItems = () => {
           +
         </button>
         <MDBRow className="d-flex justify-content-center align-items-center">
-          <MDBCol size="5" className="text-align-right">
-            <h4>Total List Items: {itemList.length}</h4>
+          <MDBCol size="8" className="m-2">
+            <h4 style={{
+              textAlign: "center",
+              whiteSpace: "no-wrap"
+            }}>Total List Items: {itemList.length}</h4>
           </MDBCol>
           {/* <MDBCol size="5">
             <MDBBtn
