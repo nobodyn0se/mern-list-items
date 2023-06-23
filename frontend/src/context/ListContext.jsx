@@ -75,7 +75,6 @@ export const ListContextProvider = ({ children }) => {
             });
 
             if(response.status === 200) {
-                console.log(response);
                 getListItems();
                 setLoading(false);
             }
@@ -85,9 +84,27 @@ export const ListContextProvider = ({ children }) => {
     }
 
 
+    // business logic to delete a list item
+    const deleteItem = async (uuid) => {
+        try {
+            setLoading(true);
+            const response = await axios.delete(`${env.REACT_APP_API_URI}/list-items/delete/${uuid}`, {
+                headers: {
+                    authorization: token
+                }
+            });
+
+            if(response.status === 200) {
+                getListItems();
+                setLoading(false);
+            }
+        } catch(err) {
+            console.log(err);
+        }
+    } 
 
     return (
-        <ListContext.Provider value={{loading, token, getListItems, addItem, updateItem, itemList}}>
+        <ListContext.Provider value={{loading, token, getListItems, addItem, updateItem, deleteItem, itemList}}>
             { children }
         </ListContext.Provider>
     )
