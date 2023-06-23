@@ -14,12 +14,14 @@ import {
   MDBIcon,
 } from "mdb-react-ui-kit";
 
+import { useListProvider } from "../context/ListContext";
 import { useAuthProvider } from "../context/AuthContext";
 
 const ListItems = () => {
   const navigate = useNavigate();
 
-  const { token, getListItems, loading, addItem, itemList } = useAuthProvider();
+  const { token } = useAuthProvider();
+  const { getListItems, loading, addItem, itemList } = useListProvider();
 
   const fetchList = async () => {
     await addItem();
@@ -55,7 +57,7 @@ const ListItems = () => {
       </MDBRow>
       <MDBRow className="w-100">
         {itemList.map((item, index) => (
-          <MDBCol size="12" sm="6" md="4" lg="3">
+          <MDBCol key={`${item.uuid}+${index}`} size="12" sm="6" md="4" lg="3">
             <MDBCard key={item.uuid} className="my-2 d-flex flex-row">
               <MDBIcon
                 icon="pencil"
