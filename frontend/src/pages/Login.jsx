@@ -16,6 +16,8 @@ import { useNavigate } from "react-router";
 
 import { useAuthProvider } from "../context/AuthContext";
 
+import Loader from '../components/Loader';
+
 const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -46,7 +48,7 @@ const LoginPage = () => {
   }, [navigate, token]);
 
   return loading ? (
-    <p>Loading...</p>
+    <Loader />
   ) : (
     <MDBContainer fluid>
       <MDBRow className="d-flex justify-content-center align-items-center h-100">

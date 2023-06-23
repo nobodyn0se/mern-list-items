@@ -3,6 +3,8 @@ import { useNavigate } from "react-router";
 
 import "../styles/ListItems.css";
 
+import Loader from '../components/Loader';
+
 import {
   MDBBtn,
   MDBContainer,
@@ -81,9 +83,7 @@ const ListItems = () => {
     }
   }, [navigate, token]);
 
-  return loading ? (
-    <p>Loading...</p>
-  ) : (
+  return loading ? <Loader /> : (
     <>
       <MDBContainer fluid>
         <button className="fab" onClick={handleAdd}>
@@ -96,18 +96,6 @@ const ListItems = () => {
               whiteSpace: "no-wrap"
             }}>Total List Items: {itemList.length}</h4>
           </MDBCol>
-          {/* <MDBCol size="5">
-            <MDBBtn
-              outline
-              className="mx-2 px-5 my-3 bg-dark text-white"
-              color="black"
-              size="lg"
-              rounded
-              onClick={handleLogOut}
-            >
-              Logout
-            </MDBBtn>
-          </MDBCol> */}
         </MDBRow>
         <MDBRow className="w-100 mb-5">
           {itemList.map((item, index) => (

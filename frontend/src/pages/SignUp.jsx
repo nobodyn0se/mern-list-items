@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router";
 
+import Loader from '../components/Loader';
+
 import {
     MDBBtn,
     MDBContainer,
@@ -53,7 +55,7 @@ const SignUp = () => {
   }, [navigate, token]);
 
   return (
-    loading ? <p>Loading...</p> :
+    loading ? <Loader /> :
     
     <MDBContainer fluid>
       <MDBRow className="d-flex justify-content-center align-items-center h-100">
