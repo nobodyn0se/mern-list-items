@@ -82,6 +82,9 @@ const ListItems = () => {
   ) : (
     <>
       <MDBContainer fluid>
+        <button className="fab" onClick={handleAdd}>
+          +
+        </button>
         <MDBRow className="d-flex justify-content-center align-items-center">
           <MDBCol size="5" className="text-align-right">
             <h4>Total List Items: {itemList.length}</h4>
@@ -132,7 +135,6 @@ const ListItems = () => {
             </MDBCol>
           ))}
         </MDBRow>
-        <button onClick={handleAdd}>Add a ToDo</button>
       </MDBContainer>
       {modalOpen && (
         <ModalController
