@@ -43,12 +43,12 @@ const ListItems = () => {
     <p>Loading...</p>
   ) : (
     <MDBContainer fluid>
-      <MDBRow className="d-flex justify-content-end align-items-center ml-auto">
+      <MDBRow className="d-flex justify-content-center align-items-center">
         <MDBCol size="5" className="text-align-right">
           <h4>Total List Items: {itemList.length}</h4>
         </MDBCol>
         <MDBCol size="5">
-          <MDBBtn outline className="mx-2 px-5 my-3" color="black" size="lg">
+          <MDBBtn outline className="mx-2 px-5 my-3 bg-dark text-white rounded" color="black" size="lg">
             Logout
           </MDBBtn>
         </MDBCol>
@@ -57,10 +57,25 @@ const ListItems = () => {
         {itemList.map((item, index) => (
           <MDBCol size="12" sm="6" md="4" lg="3">
             <MDBCard key={item.uuid} className="my-2 d-flex flex-row">
-              <MDBIcon icon="trash" className="align-self-center" size="lg" />
+              <MDBIcon
+                icon="pencil"
+                className="align-self-center mx-3"
+                size="lg"
+              />
+              <MDBIcon
+                icon="trash"
+                className="align-self-center mx-2"
+                size="lg"
+              />
               <MDBCardBody className="d-flex flex-column align-items-center mx-auto w-100">
-                <h2 className="fw-bold mb-2 card-title">{item.title}</h2>
-                <p className="mb-3">{item.description}</p>
+                <MDBCol>
+                  <MDBRow className="w-100 text-align-left">
+                    <h2 className="fw-bold mb-2 card-title">{item.title}</h2>
+                  </MDBRow>
+                  <MDBRow className="mb-0 w-100">
+                    <p>{item.description}</p>
+                  </MDBRow>
+                </MDBCol>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
