@@ -23,9 +23,11 @@ There are two ways you can test this app. One on your local machine (local testi
 For local testing, start the backend server:
 Ensure that your present working directory points to mern-list-items. Verify that using `pwd` for Linux/Mac or `cd` for Windows. Now run:
 
-`cd backend`
-`npm i`
-`npm run dev`
+```
+cd backend
+npm i
+npm run dev
+```
 
 This will start the server in development mode. You will see a console message stating the port number : 6000
 
@@ -34,11 +36,13 @@ You can replace the URL within the code wherever applicable.
 
 Please note: The local testing env still connects to the hosted MongoDB. Hence, any changes you make to the list items will still reflect on the production app.
 
-Now start the frontend:
-`cd ..`
-`cd frontend`
-`npm i`
-`npm start`
+Now start the frontend local instance using the following commands:
+```
+cd ..
+cd frontend
+npm i
+npm start
+```
 
 This should start the frontend server on port : 3000
 The frontend URL will be http://localhost:3000
@@ -51,8 +55,10 @@ You can verify auth protection by sending requests to the endpoints without toke
 The login page is the first page that opens. You can log in to your account or create a new one using the Sign Up link at the bottom.
 
 For testing you can use a pre-registered user with the following credentials:
+```
 username: testuser1
 password: test123
+```
 
 Once logged in, the top will display the total number of list items currently in DB.
 
